@@ -61,7 +61,7 @@ export class ShowFriendsPage implements OnInit {
         this.navCtrl.navigateBack('');
       }
     }, err => {
-      console.log(err);
+      // console.log(err);
     });
   }
 

@@ -53,7 +53,7 @@ export class MyProfilePage implements OnInit {
           this.navCtrl.navigateBack('');
         }
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 
@@ -123,12 +123,12 @@ export class MyProfilePage implements OnInit {
     this.presentLoading2().then(() => {
           this.authSrv.logoutUser()
         .then(res => {
-          console.log(res);
+          // console.log(res);
           this.presentToast2
           this.navCtrl.navigateBack('');
         })
         .catch(error => {
-          console.log(error);
+          // console.log(error);
         });
     });
   }

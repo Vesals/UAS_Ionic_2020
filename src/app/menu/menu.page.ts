@@ -26,8 +26,6 @@ export class MenuPage implements OnInit {
 
   ngOnInit(){
     this.authSrv.userDetails().subscribe(res => {
-      console.log('res: ', res);
-      // console.log('uid ', res.uid);
       if(res !== null){
         this.userEmail = res.email;
         this.userSrv.getAll('user').snapshotChanges().pipe(
@@ -36,12 +34,9 @@ export class MenuPage implements OnInit {
           )
         ).subscribe(data => {
           this.user = data;
-          console.log(this.user);
-          console.log(this.userEmail);
           this.user = this.user.filter(User => {
               return User.email == this.userEmail
           });
-          console.log(this.user);
           this.photo = 'https://cise-egypt.com/wp-content/uploads/2019/09/WELCOME-ST-IVES.jpg';
           this.namaDepan = this.user[0].nDepan;
           this.namaBelakang =this.user[0].nBelakang
@@ -51,18 +46,18 @@ export class MenuPage implements OnInit {
         this.navCtrl.navigateBack('');
       }
     }, err => {
-      console.log(err);
+      // console.log(err);
     });
 }
 
 logout(){
   this.authSrv.logoutUser()
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.navCtrl.navigateBack('');
       })
       .catch(error => {
-        console.log(error);
+        // console.log(error);
       });
 }
 

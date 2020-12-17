@@ -129,7 +129,7 @@ export class ShowMapPage implements OnInit {
         this.navCtrl.navigateBack('');
       }
     }, err => {
-      console.log(err);
+      // console.log(err);
     });
 }
 ionViewDidEnter(){
@@ -162,7 +162,7 @@ saveLoc(){
       this.dataMap = postData;     
       // console.log(this.dataMap)
       this.userSrv.CurrentLocation(this.namaDepan,this.dataMap).then(res => {
-          console.log(res);
+          // console.log(res);
           this.presentToast2();
         });  
     });
@@ -195,7 +195,7 @@ saveLoc(){
 
             if(this.dataMapNow.length == 0){
               this.userSrv.CurrentLocation(this.namaDepan,this.dataMap).then(res => {
-                  console.log(res);
+                  // console.log(res);
               });
               this.presentToast();
               window.location.reload();
@@ -203,7 +203,7 @@ saveLoc(){
             if(this.dataMapNow.length > 0){
               this.userSrv.DeleteLocation(this.dataMapNow[0].key,this.namaDepan).then(res => {
                 this.userSrv.CurrentLocation(this.namaDepan,this.dataMap).then(res => {
-                    console.log(res);
+                    // console.log(res);
                     this.presentToast2();
                 });
               })

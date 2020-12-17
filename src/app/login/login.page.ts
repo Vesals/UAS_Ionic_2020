@@ -46,7 +46,7 @@ errorMessage: string = '';
   loginUser(value){
     this.authSrv.loginUser(value)
         .then(res => {
-          console.log(res);
+          // console.log(res);
           this.errorMessage = '';
           this.validations_form.reset();
           this.navCtrl.navigateForward('/menu');
