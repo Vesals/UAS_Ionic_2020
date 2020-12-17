@@ -6,11 +6,11 @@ import { UserService } from '../services/user.service';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-menu',
+  templateUrl: './menu.page.html',
+  styleUrls: ['./menu.page.scss'],
 })
-export class HomePage {
+export class MenuPage implements OnInit {
 
   userEmail: string;
   userID: string;
@@ -27,7 +27,7 @@ export class HomePage {
   ngOnInit(){
     this.authSrv.userDetails().subscribe(res => {
       console.log('res: ', res);
-      console.log('uid ', res.uid);
+      // console.log('uid ', res.uid);
       if(res !== null){
         this.userEmail = res.email;
         this.userSrv.getAll('user').snapshotChanges().pipe(
@@ -42,17 +42,10 @@ export class HomePage {
               return User.email == this.userEmail
           });
           console.log(this.user);
-          this.photo = this.user[0].imageUrl;
+          this.photo = 'https://cise-egypt.com/wp-content/uploads/2019/09/WELCOME-ST-IVES.jpg';
           this.namaDepan = this.user[0].nDepan;
           this.namaBelakang =this.user[0].nBelakang
-          console.log(this.namaDepan);
-          console.log(this.namaBelakang);
-          /*for(let i = 0; i < this.user.length;){
-              if(this.user[i].email === this.userEmail){
-                this.photo = this.user[i].imageUrl;
-              }
-              i++;
-          }*/
+
         });
       }else {
         this.navCtrl.navigateBack('');

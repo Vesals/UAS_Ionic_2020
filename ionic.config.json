@@ -1,5 +1,7 @@
 {
   "name": "UAS_CelvynYulian_19475",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
